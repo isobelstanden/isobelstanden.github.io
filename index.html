@@ -5,62 +5,236 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Isobel Standen – Philosophy PhD Candidate</title>
   <style>
-    body {
-      font-family: Georgia, serif;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-      background-color: #ffffff;
-      color: #333;
-    }
-    h1, h2 {
-      color: #2c3e50;
-    }
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    nav a {
-      margin-right: 1rem;
-    }
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #666;
+    :root {
+      --bg: #faf6f2;
+      --surface: #f4ebe4;
+      --peach: #f0b99b;
+      --peach-soft: #fbe6da;
+      --text: #3b3431;
+      --muted: #6f655f;
+      --heading: #2e2825;
+      --link: #a14a26;
+      --rule: #e6d8cd;
     }
 
-	.top-right-logos {
-    	position: absolute;
-    	top: 20px;
-    	right: 20px;
-    	display: flex;
-    	flex-direction: column;
-    	align-items: flex-end;
-    	gap: 10px;
-	}
-</style>
-	  
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: underline;
+      text-decoration-color: var(--peach);
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+    }
+    a:hover { text-decoration-color: var(--link); }
+    a:focus-visible {
+      outline: 3px solid var(--peach);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* Header */
+    header {
+      padding-bottom: 1.75rem;
+      border-bottom: 2px solid var(--peach);
+    }
+
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    h1 {
+      margin: 0 0 0.35rem;
+      font-size: 2.5rem;
+      line-height: 1.15;
+      font-weight: normal;
+      letter-spacing: -0.01em;
+      color: var(--heading);
+    }
+
+    .role {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .role em { color: var(--text); }
+
+    .logos {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+    .logos img {
+      display: block;
+      height: 44px;
+      width: auto;
+      max-width: 100%;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      margin-top: 1.5rem;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 0.95rem;
+    }
+    nav a {
+      color: var(--heading);
+      text-decoration: none;
+      padding: 0.15rem 0;
+      border-bottom: 2px solid transparent;
+    }
+    nav a:hover { border-bottom-color: var(--peach); }
+
+    /* Sections */
+    section {
+      padding: 2.25rem 0 0.5rem;
+    }
+    section + section {
+      margin-top: 0.25rem;
+    }
+
+    h2 {
+      margin: 0 0 1rem;
+      font-size: 1.5rem;
+      line-height: 1.3;
+      font-weight: normal;
+      color: var(--heading);
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      border-bottom: 3px solid var(--peach);
+    }
+
+    h3 {
+      margin: 1.5rem 0 0.75rem;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    p { margin: 0 0 1rem; }
+
+    /* Lists */
+    ul { margin: 0; padding: 0; }
+
+    .interests {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+    }
+    .interests li {
+      background: var(--surface);
+      padding: 0.6rem 1rem;
+      border-left: 4px solid var(--peach);
+    }
+
+    .entries {
+      list-style: none;
+    }
+    .entries > li {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .entries > li:first-child { padding-top: 0; }
+    .entries > li:last-child { border-bottom: none; }
+
+    .entries .links {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.95rem;
+    }
+
+    .talks {
+      list-style: none;
+    }
+    .talks li {
+      padding: 0.6rem 0 0.6rem 1rem;
+      border-left: 3px solid var(--peach-soft);
+      margin-bottom: 0.25rem;
+    }
+
+    .award {
+      background: var(--peach-soft);
+      padding: 0 0.3rem;
+    }
+
+    /* Contact */
+    .contact-list {
+      list-style: none;
+    }
+    .contact-list li { margin-bottom: 0.25rem; overflow-wrap: anywhere; }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--rule);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      body { font-size: 1rem; }
+      .page { padding: 1.5rem 1.1rem 2.5rem; }
+
+      .masthead {
+        flex-direction: column-reverse;
+        gap: 1.25rem;
+      }
+      .logos {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .logos img { height: 36px; }
+
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.35rem; }
+      section { padding-top: 1.75rem; }
+    }
   </style>
 </head>
 <body>
+<div class="page">
 
-<div class="top-right-logos">
-    <img src="High Res UoY.png" alt="University of York Logo" width="300">
-    <img src="ISA-Logo.jpg" alt="Institute for Safe Autonomy Logo" width="300">
-</div>
- 
-
-
-	
   <header>
-    <h1>Isobel Standen</h1>
-    <p><em>PhD Candidate in Philosophy</em><br>
-    University of York / Institute for Safe Autonomy </p>
-    <nav>
+    <div class="masthead">
+      <div>
+        <h1>Isobel Standen</h1>
+        <p class="role"><em>PhD Candidate in Philosophy</em><br>
+        University of York / Institute for Safe Autonomy</p>
+      </div>
+      <div class="logos">
+        <img src="High Res UoY.png" alt="University of York Logo">
+        <img src="ISA-Logo.jpg" alt="Institute for Safe Autonomy Logo">
+      </div>
+    </div>
+    <nav aria-label="Page sections">
       <a href="#about">About</a>
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
@@ -68,101 +242,103 @@
     </nav>
   </header>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      Isobel Standen is a PhD student in philosophy at the University of York and a researcher at the Centre for Assuring Autonomy. Her research explores the contrast between human capacities and those attributed to AI systems. In particular, she highlights how it is a lack of reliable common sense that is one of the leading causes of errors made by AI systems. Her work is at the intersection of philosophy and computer science, where she collaborates with roboticists, software engineers, and domain experts to tackle the challenges of assuring ethical AI solutions. 
-	  </p>
-	  <p>	
-		Isobel is also a co-organiser of the annual <a href="https://retrai-workshop.github.io/retrai-26/">‘Requirement Engineering for Trustworthy Artificial Intelligence’ (‘RETRAI’)</a> workshop which aims to bring together multidisciplinary researchers and practitioners to discuss the challenges associated with developing truly trustworthy AI systems and identify strategies for overcoming associated risks. Her PhD project is part of the <a href="https://tas.ac.uk/home/the-nodes/">UKRI Trustworthy Autonomous Systems node in resilience</a>, supervised by  Professor Alan Thomas (Department of Philosophy) and Professor Radu Calinescu (Department of Computer Science). 
-    </p>
-  
-  </section>
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        Isobel Standen is a PhD student in philosophy at the University of York and a researcher at the Centre for Assuring Autonomy. Her research explores the contrast between human capacities and those attributed to AI systems. In particular, she highlights how it is a lack of reliable common sense that is one of the leading causes of errors made by AI systems. Her work is at the intersection of philosophy and computer science, where she collaborates with roboticists, software engineers, and domain experts to tackle the challenges of assuring ethical AI solutions.
+      </p>
+      <p>
+        Isobel is also a co-organiser of the annual <a href="https://retrai-workshop.github.io/retrai-26/">‘Requirement Engineering for Trustworthy Artificial Intelligence’ (‘RETRAI’)</a> workshop which aims to bring together multidisciplinary researchers and practitioners to discuss the challenges associated with developing truly trustworthy AI systems and identify strategies for overcoming associated risks. Her PhD project is part of the <a href="https://tas.ac.uk/home/the-nodes/">UKRI Trustworthy Autonomous Systems node in resilience</a>, supervised by Professor Alan Thomas (Department of Philosophy) and Professor Radu Calinescu (Department of Computer Science).
+      </p>
+    </section>
 
-  <section id="research">
-    <h2>Research Interests</h2>
-    <ul>
-      <li>Common-sense knowledge and common-sense reasoning</li>
-	  <li>Knowledge representation in AI</li>
-	  <li>Decision-making under uncertainty</li>
-	  <li>'Trustworthiness' in the context of AI systems</li>
-    </ul>
-  </section>
+    <section id="research">
+      <h2>Research Interests</h2>
+      <ul class="interests">
+        <li>Common-sense knowledge and common-sense reasoning</li>
+        <li>Knowledge representation in AI</li>
+        <li>Decision-making under uncertainty</li>
+        <li>'Trustworthiness' in the context of AI systems</li>
+      </ul>
+    </section>
 
-  <section id="publications">
-    <h2>Selected Publications</h2>
-    <ul>
-	<li>
-		<b><i>INSYTE: A Classification Framework for Traditional to Agentic AI Systems</i></b><br> Zoe Porter, Radu Calinescu, Ernest Lim, Victoria Hodge, Philippa Ryan, Simon Burton, Ibrahim Habli, Tom Lawton, John McDermid, John Molloy, Helen Monkhouse, Phillip Morgan, Paul Noordhof, Colin Paterson, <b>Isobel Standen</b>, and Jie Zou</b>.
-		<em>Pre-print available on SSRN. 2025</em>
-		<br>
-		(<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5360658">Paper</a>).
-	</li>    
-      	<li>
-		<b><i>Normative Requirements Operationalization with Large Language Models</i></b><br> Nick Feng, Lina Marsso, Sinem Getir Yaman, <b>Isobel Standen</b>, Yesugen Baatartogtokh, Reem Ayad, Victória Oldemburgo de Mello, Beverley Townsend, Hanne Bartels, Ana Cavalcanti, Radu Calinescu, and Marsha Chechik</b>.
-		<em>Proceedings of the 32nd IEEE International Requirements Engineering  RE'2024 (Reykjavik, Iceland), 2024</em>
-		<br>
-		(<a href="https://arxiv.org/abs/2404.12335">Paper</a>, <a href="https://github.com/NickF0211/sleecvalDef">Tool</a>, <a href="http://www.cs.toronto.edu/~lmarsso/RE.pdf">Slides</a>).
-	</li>
-	<li>
-		<b><i>Analyzing and Debugging Normative Requirements via Satisfiability Checking</i></b><br> Nick Feng, Lina Marsso, Sinem Getir Yaman, Beverley Townsend, Yesugen Baatartogtokh, Reem Ayad, Victória Oldemburgo de Mello, <b>Isobel Standen</b>, Ioannis Stefanakos, Calum Imrie, Genaina Rodrigues, Ana Cavalcanti, Radu Calinescu, and Marsha Chechik. <b>ACM SIGSOFT Distinguished Paper Award</b>.
-		<em>Proceedings of the 46th International Conference on Software Engineering ICSE'2024 (Lisboa, Portugal), 2024</em>
-		<br>
-		(<a href="https://arxiv.org/abs/2401.05673">Paper</a>, <a href="https://github.com/NickF0211/LEGOS-SLEEC">Tool</a>, <a href="http://www.cs.toronto.edu/~sleec/">Case-studies</a>, <a href="http://www.cs.toronto.edu/~lmarsso/ICSE_2024_SLIDES.pdf">Slides</a>).
-	</li>
-    </ul>
-  </section>
+    <section id="publications">
+      <h2>Selected Publications</h2>
+      <ul class="entries">
+        <li>
+          <b><i>INSYTE: A Classification Framework for Traditional to Agentic AI Systems</i></b><br>
+          Zoe Porter, Radu Calinescu, Ernest Lim, Victoria Hodge, Philippa Ryan, Simon Burton, Ibrahim Habli, Tom Lawton, John McDermid, John Molloy, Helen Monkhouse, Phillip Morgan, Paul Noordhof, Colin Paterson, <b>Isobel Standen</b>, and Jie Zou.
+          <em>Pre-print available on SSRN. 2025</em>
+          <span class="links">(<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5360658">Paper</a>).</span>
+        </li>
+        <li>
+          <b><i>Normative Requirements Operationalization with Large Language Models</i></b><br>
+          Nick Feng, Lina Marsso, Sinem Getir Yaman, <b>Isobel Standen</b>, Yesugen Baatartogtokh, Reem Ayad, Victória Oldemburgo de Mello, Beverley Townsend, Hanne Bartels, Ana Cavalcanti, Radu Calinescu, and Marsha Chechik.
+          <em>Proceedings of the 32nd IEEE International Requirements Engineering  RE'2024 (Reykjavik, Iceland), 2024</em>
+          <span class="links">(<a href="https://arxiv.org/abs/2404.12335">Paper</a>, <a href="https://github.com/NickF0211/sleecvalDef">Tool</a>, <a href="http://www.cs.toronto.edu/~lmarsso/RE.pdf">Slides</a>).</span>
+        </li>
+        <li>
+          <b><i>Analyzing and Debugging Normative Requirements via Satisfiability Checking</i></b><br>
+          Nick Feng, Lina Marsso, Sinem Getir Yaman, Beverley Townsend, Yesugen Baatartogtokh, Reem Ayad, Victória Oldemburgo de Mello, <b>Isobel Standen</b>, Ioannis Stefanakos, Calum Imrie, Genaina Rodrigues, Ana Cavalcanti, Radu Calinescu, and Marsha Chechik. <b class="award">ACM SIGSOFT Distinguished Paper Award</b>.
+          <em>Proceedings of the 46th International Conference on Software Engineering ICSE'2024 (Lisboa, Portugal), 2024</em>
+          <span class="links">(<a href="https://arxiv.org/abs/2401.05673">Paper</a>, <a href="https://github.com/NickF0211/LEGOS-SLEEC">Tool</a>, <a href="http://www.cs.toronto.edu/~sleec/">Case-studies</a>, <a href="http://www.cs.toronto.edu/~lmarsso/ICSE_2024_SLIDES.pdf">Slides</a>).</span>
+        </li>
+      </ul>
+    </section>
 
+    <section id="invited-talks-and-presentations">
+      <h2>Invited Talks and Presentations</h2>
+      <ul class="talks">
+        <li>'Illusions of Understanding: Artificial Intelligence and the Common Sense Gap', The Royal Institute of Philosophy, 2026.</li>
+        <li>‘Engineered Authenticity and the Capacity to Pretend’, Institute for Safe Autonomy, UK, 2026.</li>
+        <li>'Common Sense as a Path to Artificial Resilience', University of Toronto, Canada, 2024.</li>
+        <li>'On GOFAI as a Method for Approximating Common Sense', University of York, UK, 2023.</li>
+        <li>'Robot-Assisted Surgery: Can a machine be blameworthy?', York Science Conference, UK, 2022.</li>
+        <li>'Robot-Assisted Surgery: A Waste of Resources or The Future of Healthcare?', YorRobots, UK, 2021.</li>
+      </ul>
+    </section>
 
- <section id="Invited Talks and Presentations">
-  <h2>Invited Talks and Presentations</h2>
-    <p>
-<ul>
-<li>'Illusions of Understanding: Artificial Intelligence and the Common Sense Gap', The Royal Institute of Philosophy, 2026.</li>
-<li>‘Engineered Authenticity and the Capacity to Pretend’, Institute for Safe Autonomy, UK, 2026.</li>
-<li>'Common Sense as a Path to Artificial Resilience', University of Toronto, Canada, 2024.</li>
-<li>'On GOFAI as a Method for Approximating Common Sense', University of York, UK, 2023.</li>
-<li>'Robot-Assisted Surgery: Can a machine be blameworthy?', York Science Conference, UK, 2022. </li>
-<li>'Robot-Assisted Surgery: A Waste of Resources or The Future of Healthcare?', YorRobots, UK, 2021.</li>
-</ul>  
-</p>
-  </section>
+    <section id="selected-professional-activities">
+      <h2>Selected Professional Activities</h2>
 
- <section id="Selected Professional Activities">
-  <h2>Selected Professional Activities</h2>
- <ul> 
-<h3>Workshop Organiser</h3>
-	 <li><b><i>Requirement Engineering for Trustworthy Artificial Intelligence - RETRAI 2026</i></b><br><em>Co-chair</em>, Collaboration with Hasso Plattner Institut, University of Potsdam, and Polytechnique Montréal. Workshop co-located with RE’26. 
-	<br>	 
-	(<a href="https://retrai-workshop.github.io/retrai-26/">Website</a>) 
-</li>
-	 <li><b><i>Requirement Engineering for Trustworthy Artificial Intelligence - RETRAI 2025</i></b><br><em>Co-chair</em>, Collaboration with University of Hamburg and Polytechnique Montréal. Workshop co-located with RE’25. 
-	<br>	 
-	(<a href="https://www.cs.toronto.edu/~retrai/">Website</a>) 
-</li>
+      <h3>Workshop Organiser</h3>
+      <ul class="entries">
+        <li>
+          <b><i>Requirement Engineering for Trustworthy Artificial Intelligence - RETRAI 2026</i></b><br>
+          <em>Co-chair</em>, Collaboration with Hasso Plattner Institut, University of Potsdam, and Polytechnique Montréal. Workshop co-located with RE’26.
+          <span class="links">(<a href="https://retrai-workshop.github.io/retrai-26/">Website</a>)</span>
+        </li>
+        <li>
+          <b><i>Requirement Engineering for Trustworthy Artificial Intelligence - RETRAI 2025</i></b><br>
+          <em>Co-chair</em>, Collaboration with University of Hamburg and Polytechnique Montréal. Workshop co-located with RE’25.
+          <span class="links">(<a href="https://www.cs.toronto.edu/~retrai/">Website</a>)</span>
+        </li>
+      </ul>
 
-<h3>Competitions</h3>
-	 <li><b><i>Three Minute Thesis (3MT) Competition </i></b><br><em>Finalist (2025)</em>, University of York 
-	<br>
-	 (<a href="https://features.york.ac.uk/three-minute-thesis-2025/">Website</a>, <a href="https://www.youtube.com/watch?v=SuHPmuXJNQs">Video</a>) 
-</li>
+      <h3>Competitions</h3>
+      <ul class="entries">
+        <li>
+          <b><i>Three Minute Thesis (3MT) Competition</i></b><br>
+          <em>Finalist (2025)</em>, University of York
+          <span class="links">(<a href="https://features.york.ac.uk/three-minute-thesis-2025/">Website</a>, <a href="https://www.youtube.com/watch?v=SuHPmuXJNQs">Video</a>)</span>
+        </li>
+      </ul>
+    </section>
 
-</ul>  
-  </section>	
-
-
-	
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      📧 <a href="mailto:isobel.standen@york.ac.uk">isobel.standen[at]york.ac.uk</a><br>
-      🔗 <a href="www.linkedin.com/in/isobel-standen">www.linkedin.com/in/isobel-standen</a><br>
-    </p>
-  </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li>📧 <a href="mailto:isobel.standen@york.ac.uk">isobel.standen[at]york.ac.uk</a></li>
+        <li>🔗 <a href="https://www.linkedin.com/in/isobel-standen">www.linkedin.com/in/isobel-standen</a></li>
+      </ul>
+    </section>
+  </main>
 
   <footer>
     &copy; 2026 Isobel Standen. All rights reserved.
   </footer>
 
+</div>
 </body>
 </html>
