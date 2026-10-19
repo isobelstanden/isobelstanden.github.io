@@ -120,7 +120,10 @@
     nav {
       grid-column: 1;
       grid-row: 2;
-      align-self: start;
+      align-self: end;
+      /* the peach line sits under the links only, stopping before the logos */
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--peach);
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem 2rem;
