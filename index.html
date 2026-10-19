@@ -68,12 +68,15 @@
       border-bottom: 2px solid var(--peach);
     }
 
-    .masthead {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1.5rem;
+    /* Grid: name + nav on the left, logos spanning both rows on the right */
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto 1fr;
+      column-gap: 1.5rem;
     }
+    .masthead { display: contents; }
+    .intro { grid-column: 1; grid-row: 1; }
 
     h1 {
       margin: 0 0 0.35rem;
@@ -98,12 +101,14 @@
       gap: 0.75rem;
       flex-shrink: 0;
     }
-  /* Both logos share the same width so they look evenly sized.
+    /* Both logos share the same width so they look evenly sized.
        Adjust --logo-width to make both bigger or smaller. */
     .logos {
+      grid-column: 2;
+      grid-row: 1 / span 2;
       --logo-width: 240px;
       /* pushes the logos out toward the right edge of wide screens */
-      margin-right: calc(-1 * max(0px, (100vw - 880px) / 2 - 8px));
+      margin-right: calc(-1 * max(0px, (100vw - 880px) / 4 - 4px));
     }
     .logos img {
       display: block;
@@ -113,6 +118,9 @@
     }
 
     nav {
+      grid-column: 1;
+      grid-row: 2;
+      align-self: start;
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem 2rem;
