@@ -116,20 +116,20 @@
       max-width: 100%;
     }
 
-    nav {
-      grid-column: 1;
-      grid-row: 2;
-      align-self: end;
-      /* the peach line sits under the links only, stopping before the logos */
-      padding-bottom: 0.25rem;
-      border-bottom: 2px solid var(--peach);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 2rem;
-      margin-top: 1.5rem;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      font-size: 1.2rem;
-    }
+nav {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
+  max-width: 85%;                   /* new: shortens the line */
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid var(--peach);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin-top: 1.5rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.2rem;
+}
     nav a {
       color: var(--heading);
       text-decoration: none;
